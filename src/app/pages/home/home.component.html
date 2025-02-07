@@ -1,0 +1,60 @@
+<section class="grid grid-cols-1 sm:grid-cols-[70%_minmax(0,1fr)] py-5">
+
+
+  <div class="main-slider sm:w-full">
+    <owl-carousel-o [options]="mainSlider" class="sm:w-full">
+      <ng-template carouselSlide class="sm:w-full">
+        <img src="/images/slider-image-2.jpeg" class="w-full md:object-cover  block h-[300px] sm:w-full " alt="">
+      </ng-template>
+
+      <ng-template carouselSlide class="sm:w-full">
+        <img src="/images/slider-image-3.jpeg" class="w-full md:object-cover  block h-[300px] sm:w-full" alt="">
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+
+  <div class="w-full">
+    <img src="/images/grocery-banner.png" class="w-full h-[150px]" alt="">
+
+    <img src="/images/grocery-banner-2.jpeg" class="w-full h-[150px]" alt="">
+  </div>
+
+
+</section>
+
+
+<section class="categories">
+
+  <h2 class="text-gray-700 text-center md:text-start md:text-3xl font-semibold py-3">Shop Popular Categories</h2>
+
+  <owl-carousel-o [options]="categoriesSlider">
+
+    @for (category of categoriesList; track $index) {
+    <ng-template carouselSlide>
+      <div>
+        <img [src]="category.image" [alt]="category.slug" class="h-[300px]  w-full">
+        <h3 class="text-center py-2">{{category.name}}</h3>
+      </div>
+
+    </ng-template>
+    }
+
+  </owl-carousel-o>
+
+</section>
+
+
+<section class="popular-products grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+
+  @for (product of productsList.slice(0,18); track product._id) {
+
+  <app-card [productElement]="product"></app-card>
+
+  }
+
+
+
+
+
+
+</section>
