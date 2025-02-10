@@ -2,7 +2,8 @@
   class=" card overflow-hidden w-full   bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
   <div [routerLink]="['/details', productElement()?._id]" class="cursor-pointer">
     <a>
-      <img class=" rounded-t-lg w-full" [src]="productElement()?.imageCover" alt="product image" />
+      <img class=" rounded-t-lg h-[150px] object-contain   md:h-[250px] w-full" [src]="productElement()?.imageCover"
+        alt="product image" />
     </a>
     <div class=" py-2">
       <a>

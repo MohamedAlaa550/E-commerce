@@ -5,10 +5,12 @@ import { ICategories } from '../../shared/interfaces/icategories';
 import { ProductsService } from '../../core/services/products/products.service';
 import { IProducts } from '../../shared/interfaces/iproducts';
 import { CardComponent } from '../../shared/components/ui/card/card.component';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../../shared/pipes/search.pipe';
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule,CardComponent],
+  imports: [CarouselModule,CardComponent,FormsModule, SearchPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit  {
 
   categoriesList:ICategories[]=[]
   productsList:IProducts[]=[]
+  text:string =""
 
 getAllCategoriesData():void{
   this.CategoriesService.getAllCategories().subscribe({
