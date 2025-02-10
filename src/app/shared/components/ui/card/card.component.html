@@ -1,29 +1,32 @@
 <div
   class=" card overflow-hidden w-full   bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-  <a href="#">
-    <img class=" rounded-t-lg w-full" [src]="productElement()?.imageCover" alt="product image" />
-  </a>
-  <div class=" py-2">
-    <a href="#">
-      <h5
-        class="text-[18px] py-3     md:text-[12px] bg-green-100 md:w-[70%] mx-auto text-center  text-mainColor  font-semibold tracking-tight dark:text-white">
-        {{productElement()?.category?.name}}
-      </h5>
+  <div [routerLink]="['/details', productElement()?._id]" class="cursor-pointer">
+    <a>
+      <img class=" rounded-t-lg w-full" [src]="productElement()?.imageCover" alt="product image" />
     </a>
-    <div class="flex items-center">
+    <div class=" py-2">
+      <a>
+        <h5
+          class="text-[18px] py-3     md:text-[12px] bg-green-100 md:w-[70%] mx-auto text-center  text-mainColor  font-semibold tracking-tight dark:text-white">
+          {{productElement()?.category?.name}}
+        </h5>
+      </a>
+      <div class="flex items-center">
 
-      <span
-        class=" text-[18px] md:text-[14px] text-nowrap text-center mx-auto font-semibold py-3 md:py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ">{{productElement()?.title?.split("
-        ",2)?.join(" ")}}</span>
-    </div>
-    <div class="flex items-center justify-between px-11 py-4 md:px-3 md:py-3">
-      <span class="text-[20px]  md:text-[14px] font-normal text-gray-900 dark:text-white">{{productElement()?.price}}
-        EPG</span>
-      <div>
-        <span class="text-yellow-500 pe-2"><i class="fa fa-solid fa-star"></i></span>
-        <span class="font-light text-[20px] md:text-[16px]  text-gray-600">{{productElement()?.ratingsAverage}}</span>
+        <span
+          class=" text-[18px] md:text-[14px] text-nowrap text-center mx-auto font-semibold py-3 md:py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ">{{productElement()?.title?.split("
+          ",2)?.join(" ")}}</span>
       </div>
+      <div class="flex items-center justify-between px-11 py-4 md:px-3 md:py-3">
+        <span class="text-[20px]  md:text-[14px] font-normal text-gray-900 dark:text-white">{{productElement()?.price}}
+          EPG</span>
+        <div>
+          <span class="text-yellow-500 pe-2"><i class="fa fa-solid fa-star"></i></span>
+          <span class="font-light text-[20px] md:text-[16px]  text-gray-600">{{productElement()?.ratingsAverage}}</span>
+        </div>
+      </div>
+
     </div>
-    <button class="main-btn w-[80%] text-[20px]  md:text-[12px] mx-auto block">Add To Cart</button>
   </div>
+  <button class="main-btn w-[80%] text-[20px]  md:text-[12px] mx-auto block">Add To Cart</button>
 </div>

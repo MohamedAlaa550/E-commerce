@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import {AbstractControl, FormControl, FormGroup,ReactiveFormsModule , Validators} from '@angular/forms'
+import {AbstractControl, FormControl, FormGroup,ReactiveFormsModule , Validators,} from '@angular/forms'
 import { AuthService } from '../../core/services/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -34,7 +34,6 @@ if(this.loginForm.valid){
   this.loading =true
   this.authService.sendLoginForm(this.loginForm.value).subscribe({
     next:(res)=>{
-
       localStorage.setItem("userToken", res.token)
       this.authService.saveUserData()
 this.msgSuccess = res.message
