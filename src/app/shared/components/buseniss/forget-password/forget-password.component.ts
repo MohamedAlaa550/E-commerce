@@ -41,7 +41,7 @@ setEmailVerify():void{
 if(this.verifyEmailForm.valid){
   this.loading=true
   let emailValue = this.verifyEmailForm.get("email")?.value
-  this.newPasswordForm.get("emali")?.patchValue(emailValue)
+  this.newPasswordForm.get("email")?.patchValue(emailValue)
 
   this.authService.verifyEmail(this.verifyEmailForm.value).subscribe({
     next:(res)=>{

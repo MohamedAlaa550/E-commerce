@@ -11,7 +11,7 @@ export class ProductsService {
   constructor(private httpClient:HttpClient) { }
 
 getAllProducts():Observable<any>{
-  return this.httpClient.get(`${environment.baseUrl}/api/v1/products`)
+  return this.httpClient.get(`${environment.baseUrl}/api/v1/products?page=1&limit=56`)
 }
 
 getSpecificProduct(id:string | null):Observable<any>{

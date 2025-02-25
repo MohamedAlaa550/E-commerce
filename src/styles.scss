@@ -1,20 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "ngx-toastr/toastr";
+@import "sweetalert2/dist/sweetalert2.min.css";
 
-
-body{
+body {
   font-family: "Montserrat", serif;
 }
 
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
 
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
-
-
-
-@layer components{
+@layer components {
   .main-btn {
-    @apply bg-mainColor disabled:bg-gray-500  text-white py-1  px-4 rounded hover:bg-hoverBg transition-colors
+    @apply bg-mainColor disabled:bg-gray-500  text-white py-1  px-4 rounded hover:bg-hoverBg transition-colors;
   }
 }

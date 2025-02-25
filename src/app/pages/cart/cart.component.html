@@ -1,1 +1,55 @@
-<p>cart works!</p>
+<section>
+
+  <div class="p-4  md:w-[90%] mx-auto mt-10">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 bg-gray-200">
+        <div class="flex">
+          <h1 class="text-lg font-bold me-3">Shopping Cart</h1>
+          <button (click)="clearCart()" class="bg-red-600 px-3 py-1 text-white rounded-lg hover:bg-red-800 ">Clear Cart
+          </button>
+        </div>
+        <span class="text-gray-600">{{numOfItems}} Items</span>
+      </div>
+      <div class="p-4">
+        @for (item of cartDetails.products; track item._id) {
+
+        <div
+          class="flex items-center mb-4 p-4 border-b border-gray-300 hover:bg-gray-100 hover:scale-105 duration-300 transition-all overflow-hidden ">
+          <img class="h-16 md:h-[150px] w-16 md:w-[20%] object-contain rounded-lg mr-4" [src]="item.product.imageCover"
+            alt="Product">
+          <div class="flex-1">
+            <h2 class="text-sm font-normal mb-2  md:text-lg md:font-bold">{{item.product.title}}</h2>
+            <span class="text-gray-600">{{item.price }} EGP</span>
+            <button (click)="removeItem(item.product.id)" class="text-mainColor block mt-3"> <i
+                class="fas fa-trash-can"></i> Remove</button>
+          </div>
+          <button (click)="updateQuantity(item.product.id ,item.count + 1 )"
+            class="text-mainColor md:text-[30px] hover:text-green-800">
+            <i class="fa-regular fa-square-plus"></i>
+          </button>
+
+          <p class="px-3 md:text-xl">{{item.count}}</p>
+
+          <button (click)="updateQuantity(item.product.id ,item.count - 1 )"
+            class="text-red-500 md:text-[30px] hover:text-red-800">
+            <i class="fa-regular fa-square-minus"></i>
+          </button>
+        </div>
+
+        }
+
+      </div>
+      <div class="px-4 py-3 bg-gray-200">
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-lg">Total:</span>
+          <span class="font-bold text-lg">{{cartDetails.totalCartPrice}} EGP</span>
+        </div>
+        <button [routerLink]="['/checkout', cartDetails._id]"
+          class="block w-full mt-4 bg-mainColor hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>

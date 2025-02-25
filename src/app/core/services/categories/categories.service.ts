@@ -18,4 +18,8 @@ export class CategoriesService {
   getSpecificCategory(id:string):Observable<any>{
     return this.httpClient.get(`${environment.baseUrl}/api/v1/categories/${id}`)
   }
+
+  getAllSubCat():Observable<any>{
+    return this.httpClient.get("https://ecommerce.routemisr.com/api/v1/subcategories?page=1&limit=60")
+  }
 }

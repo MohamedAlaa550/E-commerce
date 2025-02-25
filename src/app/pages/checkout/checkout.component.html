@@ -1,1 +1,150 @@
-<p>checkout works!</p>
+<section>
+
+  <h1 class="text-3xl font-semibold text-center text-mainColor my-4">Ckeckout Form</h1>
+
+  <div class="boder rounded-lg border-gray-300 p-5 bg-gray-100 md:w-[70%] md:mx-auto">
+
+    <form [formGroup]="paymentForm">
+
+
+      <div class="mb-3">
+        <label for="details" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Details:
+        </label>
+        <textarea formControlName="details" id="details" class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+       dark:focus:border-blue-500"></textarea>
+
+
+        @let detailsControl = paymentForm.get("details");
+
+
+        @if(detailsControl?.errors && detailsControl?.touched){
+
+        <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert">
+          <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>
+          <span class="sr-only">Danger</span>
+          <div>
+            <ul class="mt-1.5 list-disc list-inside">
+
+              @if (detailsControl?.getError("required")) {
+              <li>your details is Required</li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        }
+
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone:
+        </label>
+        <input formControlName="phone" type="tel" id="phone" class="bg-white border border-gray-200
+       text-gray-900 text-sm rounded-lg focus:ring-green-300
+        focus:border-green-300 block w-full p-2.5 dark:bg-gray-700
+         dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+        @let phoneControl = paymentForm.get("phone");
+
+        @if(phoneControl?.errors && phoneControl?.touched){
+
+        <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert">
+          <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>
+          <span class="sr-only">Danger</span>
+          <div>
+
+            <ul class="mt-1.5 list-disc list-inside">
+
+              @if(phoneControl?.getError("required")){
+
+              <li>Your Phone Number Is Required</li>
+
+              }
+
+              @else {
+              <span class="font-medium">Your phone number must meet the following requirements:</span>
+              <li>Starts with 011 , 010 , 012 or 015 </li>
+              <li>Contains exactly 11 digits (numbers only).</li>
+              }
+
+            </ul>
+          </div>
+        </div>
+
+        }
+      </div>
+
+
+      <div class="mb-3">
+        <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City:
+        </label>
+        <input formControlName="city" type="text" id="city"
+          class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+
+        @let cityControl = paymentForm.get("city");
+
+
+        @if(cityControl?.errors && cityControl?.touched){
+
+        <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert">
+          <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>
+          <span class="sr-only">Danger</span>
+          <div>
+            <ul class="mt-1.5 list-disc list-inside">
+
+              @if (cityControl?.getError("required")) {
+              <li>your city is Required</li>
+              }
+
+              @else {
+              <li>You have exceeded 30 characters</li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        }
+
+      </div>
+
+      <div class="flex justify-evenly">
+        <button (click)="onlinePayment()" [disabled]="loading" type="submit" class="main-btn bg-blue-500">
+
+          @if (loading) {
+          <span><i class="fa-solid fa-spinner fa-spin"></i></span>
+          }
+
+          Pay With Visa <span class="text-[20px]"><i class="fa-brands fa-cc-visa"></i></span></button>
+
+        <button (click)="cashPayment()" [disabled]="loading" type="submit" class="main-btn">
+
+          @if (loading) {
+          <span><i class="fa-solid fa-spinner fa-spin"></i></span>
+          }
+
+          Pay Cash <span class="text-[20px]"><i class="fa-solid fa-sack-dollar"></i></span></button>
+      </div>
+
+    </form>
+
+  </div>
+
+
+</section>

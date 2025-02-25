@@ -21,6 +21,16 @@ export class RegisterComponent {
 
   msgSuccess:string  =""
 
+  shwoPass :boolean =true
+
+
+
+
+  changeType(){
+    this.shwoPass = !this.shwoPass
+
+  }
+
 
 
 

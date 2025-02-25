@@ -1,4 +1,4 @@
-<section class="grid grid-cols-1 sm:grid-cols-[70%_minmax(0,1fr)] py-5">
+<section class="w-[90%] md:w-full mx-auto grid grid-cols-1 sm:grid-cols-[70%_minmax(0,1fr)] py-5">
 
 
   <div class="main-slider sm:w-full">
@@ -23,17 +23,18 @@
 </section>
 
 
-<section class="categories">
+<section class="w-[90%] md:w-full mx-auto categories">
 
-  <h2 class="text-gray-700 text-center md:text-start md:text-3xl font-semibold py-3">Shop Popular Categories</h2>
+  <h2 class="text-gray-700 text-center md:text-start md:text-3xl font-semibold py-3 dark:text-gray-300">Shop Popular
+    Categories</h2>
 
   <owl-carousel-o [options]="categoriesSlider">
 
     @for (category of categoriesList; track $index) {
     <ng-template carouselSlide>
-      <div>
-        <img [src]="category.image" [alt]="category.slug" class="h-[300px]  w-full">
-        <h3 class="text-center py-2">{{category.name}}</h3>
+      <div [routerLink]="['/details', category._id]">
+        <img [src]="category.image" [alt]="category.slug" class="h-[250px] object-contain md:object-cover  w-full">
+        <h3 class="text-center py-2 dark:text-green-300">{{category.name}}</h3>
       </div>
 
     </ng-template>
@@ -65,17 +66,13 @@
 </div>
 
 
-<section class="popular-products grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+<section
+  class="w-[90%] md:w-full mx-auto popular-products grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
 
-  @for (product of productsList.slice(0,18) | search:text; track product._id) {
+  @for (product of productsList.slice(25,40) | search:text; track product._id) {
 
   <app-card [productElement]="product"></app-card>
 
   }
-
-
-
-
-
 
 </section>

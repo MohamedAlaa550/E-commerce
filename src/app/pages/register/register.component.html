@@ -1,5 +1,5 @@
 <section class="w-[70%] mx-auto ">
-  <h1 class="text-[25px] font-bold text-center mb-5">Register Now </h1>
+  <h1 class="text-[25px] font-bold text-center mb-5 dark:text-green-300">Register Now </h1>
   <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
     <div class="mb-3">
       <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">name:
@@ -80,8 +80,16 @@
     <div class="mb-3">
       <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">password:
       </label>
-      <input formControlName="password" type="password" id="password"
-        class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <div class="relative">
+        <input formControlName="password" [type]="shwoPass? 'password': 'text'" id="password" class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg
+  focus:ring-green-300 focus:border-green-300 block w-full p-2.5 dark:bg-gray-700
+   dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+    dark:focus:border-blue-500">
+
+        <span (click)="changeType()"
+          class="absolute top-[50%] -translate-y-1/2 right-[10px] cursor-pointer text-gray-500 dark:text-gray-900 md:text-[20px]">
+          <i id="icon" class="fa-solid" [class.fa-eye]="shwoPass" [class.fa-eye-slash]="!shwoPass"></i></span>
+      </div>
 
       @let passwordControl = registerForm.get("password");
 
@@ -120,8 +128,18 @@
     <div class="mb-3">
       <label for="rePassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">rePassword:
       </label>
-      <input formControlName="rePassword" type="password" id="rePassword"
-        class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <div class="relative">
+
+        <input formControlName="rePassword" [type]="shwoPass? 'password': 'text'" id="rePassword" class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg
+       focus:ring-green-300 focus:border-green-300 block w-full p-2.5 dark:bg-gray-700
+        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+         dark:focus:border-blue-500">
+
+        <span (click)="changeType()"
+          class="absolute top-[50%] -translate-y-1/2 right-[10px] cursor-pointer text-gray-500 dark:text-gray-900 md:text-[20px]">
+          <i id="icon" class="fa-solid" [class.fa-eye]="shwoPass" [class.fa-eye-slash]="!shwoPass"></i></span>
+
+      </div>
 
       @if(registerForm.getError("mismatch") && registerForm.get("rePassword")?.touched){
 

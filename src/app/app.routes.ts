@@ -13,23 +13,83 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { authGaurd } from './core/guards/auth.guard';
 import { DetailsComponent } from './pages/details/details.component';
 import { ForgetPasswordComponent } from './shared/components/buseniss/forget-password/forget-password.component';
+import { AllordersComponent } from './pages/allorders/allorders.component';
+import { WishlistComponent } from './pages/wishList/wishlist/wishlist.component';
 
 export const routes: Routes = [
-  {path:"",redirectTo:"home", pathMatch:"full"},
-  {path:"",component:AuthLayoutComponent, children:[
-    {path:"login", component:LoginComponent,title:"Login"},
-    {path:"register", component:RegisterComponent,title:"Register"},
-    {path:"forgetpassword", component:ForgetPasswordComponent,title:"Forget Password"}
-  ]},
-  {path:"", component:MainLayoutComponent,children:[
-    {path:"home", component:HomeComponent,title:"Home", canActivate:[authGaurd]},
-    {path:"cart", component:CartComponent,title:"Cart", canActivate:[authGaurd]},
-    {path:"products", component:ProductsComponent,title:"Products" , canActivate:[authGaurd]},
-    {path:"categories", component:CategoriesComponent,title:"Categories" , canActivate:[authGaurd]},
-    {path:"brands", component:BrandsComponent,title:"Brands" , canActivate:[authGaurd]},
-    {path:"checkout", component:CheckoutComponent,title:"Checkout" , canActivate:[authGaurd]},
-    {path:"details/:id", component:DetailsComponent,title:"Details", canActivate:[authGaurd]},
-    {path:"**", component:NotfoundComponent, title:"Page Not Found" }
-  ]}
-
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      { path: 'login', component: LoginComponent, title: 'Login' },
+      { path: 'register', component: RegisterComponent, title: 'Register' },
+      {
+        path: 'forgetpassword',
+        component: ForgetPasswordComponent,
+        title: 'Forget Password',
+      },
+    ],
+  },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent,
+        title: 'Home',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'cart',
+        component: CartComponent,
+        title: 'Cart',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'products',
+        component: ProductsComponent,
+        title: 'Products',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'categories',
+        component: CategoriesComponent,
+        title: 'Categories',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'brands',
+        component: BrandsComponent,
+        title: 'Brands',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'allorders',
+        component: AllordersComponent,
+        title: 'Orders',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'checkout/:cId',
+        component: CheckoutComponent,
+        title: 'Checkout',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'details/:id',
+        component: DetailsComponent,
+        title: 'Details',
+        canActivate: [authGaurd],
+      },
+      {
+        path: 'wishlist',
+        component: WishlistComponent,
+        title: 'WishList',
+        canActivate: [authGaurd],
+      },
+      { path: '**', component: NotfoundComponent, title: 'Page Not Found' },
+    ],
+  },
 ];
