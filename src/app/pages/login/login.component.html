@@ -1,17 +1,17 @@
-<div class="">
+<div class="bg-[url(/images/log5.webp)] bg-center bg-cover lg:min-h-[100vh]">
 
 
 
 
 
 
-  <section class="w-[70%] mx-auto ">
-    <h1 class="text-[25px] font-bold text-center mb-5 dark:text-green-500">Login Now </h1>
+  <section class=" w-[90%] lg:w-[70%] mx-auto py-9 lg:py-16  ">
+    <h1 class="text-[25px] font-bold text-green-600 text-center mb-5 dark:text-green-500">Login Now </h1>
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
 
       <div class="mb-3">
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-green-300">emali:
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-green-600">emali:
         </label>
         <input formControlName="email" type="email" id="email"
           class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -49,7 +49,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-green-300">password:
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-green-600">password:
         </label>
         <div class="relative">
           <input formControlName="password" [type]="shwoPass? 'password': 'text'" id="password" class="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg
@@ -63,7 +63,7 @@
         </div>
 
         <a routerLink="/forgetpassword"
-          class="text-blue-600 mt-3 inline-block  cursor-pointer  hover:text-blue-800">Forget Password ?</a>
+          class="text-red-900 mt-3 inline-block  cursor-pointer  hover:text-blue-800">Forget Password ?</a>
 
         @let passwordControl = loginForm.get("password");
 
@@ -104,8 +104,8 @@
 
       <div class="flex items-center justify-between">
 
-        <p class="text-[10px] md:text-[16px] text-nowrap dark:text-green-300">You don't have an account
-          <a routerLink="/register" class="text-mainColor text-nowrap ms-1 md:ms-1 hover:bg-green-100">Sign
+        <p class="text-[10px] md:text-[16px] text-orange-500 text-nowrap dark:text-orange-500">You don't have an account
+          <a routerLink="/register" class="text-green-700 bg-green-200 text-nowrap ms-1 md:ms-1 hover:bg-green-100">Sign
             up now!</a>
 
         </p>

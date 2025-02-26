@@ -1,4 +1,10 @@
-import { Component, inject, input, OnChanges } from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  inject,
+  input,
+  OnChanges,
+} from '@angular/core';
 import { IProducts } from '../../../interfaces/iproducts';
 import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../../../core/services/cart/cart.service';
@@ -13,7 +19,7 @@ import { json } from 'stream/consumers';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
-export class CardComponent {
+export class CardComponent implements AfterViewChecked {
   productElement = input<IProducts>();
 
   private cartService = inject(CartService);
@@ -26,7 +32,7 @@ export class CardComponent {
     localStorage.getItem('wishlist') || '[]'
   );
 
-  ngOnInit() {
+  ngAfterViewChecked() {
     if (this.plateformService.checkPlateform()) {
       if (localStorage.getItem('wishlist')) {
         this.wishlistStored = JSON.parse(localStorage.getItem('wishlist')!);

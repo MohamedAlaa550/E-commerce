@@ -6,7 +6,6 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductsComponent } from './pages/products/products.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
 import { BrandsComponent } from './pages/brands/brands.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
@@ -55,13 +54,19 @@ export const routes: Routes = [
       },
       {
         path: 'categories',
-        component: CategoriesComponent,
+        loadComponent: () =>
+          import('./pages/categories/categories.component').then(
+            (m) => m.CategoriesComponent
+          ),
         title: 'Categories',
         canActivate: [authGaurd],
       },
       {
         path: 'brands',
-        component: BrandsComponent,
+        loadComponent: () =>
+          import('./pages/brands/brands.component').then(
+            (m) => m.BrandsComponent
+          ),
         title: 'Brands',
         canActivate: [authGaurd],
       },
@@ -85,7 +90,10 @@ export const routes: Routes = [
       },
       {
         path: 'wishlist',
-        component: WishlistComponent,
+        loadComponent: () =>
+          import('./pages/wishList/wishlist/wishlist.component').then(
+            (m) => m.WishlistComponent
+          ),
         title: 'WishList',
         canActivate: [authGaurd],
       },
