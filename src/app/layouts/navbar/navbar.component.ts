@@ -16,6 +16,7 @@ export class NavbarComponent {
   isLogin = input<boolean>(true);
   authService = inject(AuthService);
   isNavbarOpen: boolean = false;
+  isMenuOpen = false;
   numOfCartItems: Signal<number> = computed(() =>
     this.cartService.numberOfCart()
   );
@@ -54,5 +55,9 @@ export class NavbarComponent {
 
   toggleNavbar(): void {
     this.isNavbarOpen = !this.isNavbarOpen;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
