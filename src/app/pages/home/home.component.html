@@ -32,7 +32,7 @@
 
     @for (category of categoriesList; track $index) {
     <ng-template carouselSlide>
-      <div [routerLink]="['/details', category._id]">
+      <div>
         <img [src]="category.image" [alt]="category.slug" class="h-[250px] object-contain md:object-cover  w-full">
         <h3 class="text-center py-2 dark:text-green-300">{{category.name}}</h3>
       </div>
